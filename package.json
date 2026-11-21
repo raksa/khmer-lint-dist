@@ -1,0 +1,72 @@
+{
+  "name": "khmer-lint",
+  "version": "0.1.3",
+  "description": "Khmer language tools: spellcheck that understands unspaced text, word segmentation, a linter, zero-width word-break repair, NiDA keyboard conversions and Khmer digits — with the Khmer Hunspell dictionaries.",
+  "license": "MIT",
+  "author": "raksa <eng.raksa@gmail.com>",
+  "homepage": "https://github.com/raksa/khmer-lint-dist#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raksa/khmer-lint-dist.git"
+  },
+  "bugs": {
+    "url": "https://github.com/raksa/khmer-lint-dist/issues"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./node": {
+      "import": {
+        "types": "./dist/node.d.ts",
+        "default": "./dist/node.js"
+      },
+      "require": {
+        "types": "./dist/node.d.cts",
+        "default": "./dist/node.cjs"
+      }
+    },
+    "./dics/*": "./dist/dics/*",
+    "./*.md": "./*.md",
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "*.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "khmer",
+    "km",
+    "km-KH",
+    "cambodia",
+    "spellcheck",
+    "segmentation",
+    "hunspell",
+    "lint",
+    "nida",
+    "keyboard",
+    "zero-width-space"
+  ],
+  "dependencies": {
+    "typo-js": "^1.3.1"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

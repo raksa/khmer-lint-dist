@@ -34,7 +34,11 @@ ESM and CommonJS. Its one dependency is `typo-js`, the Hunspell reader.
   between words. A visible space separates phrases, not words. On the NiDA
   keyboard, Space types the zero-width space and Shift+Space a visible one.
 - **Runs.** Text is checked in *runs*: the Khmer letters and signs between
-  spaces, punctuation and zero-width breaks (`KHMER_WORD_RE`). Unspaced text
+  spaces, zero-width breaks, digits and symbols (`KHMER_WORD_RE`). Every
+  symbol ends a run the way a space does, Khmer or not (`.` `,` `!` `?` `។`
+  `៕` `៖` `៛`, quotes, brackets …), and is not part of the word: `ច្រៀង.` is
+  checked as `ច្រៀង`, and an abbreviation such as `គ.ស.` as `គ` and `ស`.
+  The repetition sign `ៗ`, ZWNJ and ZWJ stay inside a word. Unspaced text
   gives long runs.
 - **Unspaced words.** A run made of several dictionary words written together
   is spelled correctly. So a run that is flagged always has a part the
@@ -263,7 +267,7 @@ Each keystroke is `{ text, code, layer, label, qwerty? }`:
 | --- | --- |
 | `ZERO_WIDTH_SPACE` | `'​'`, the word break. |
 | `KHMER_BASE_LETTER_RE` | A Khmer consonant or independent vowel (U+1780–U+17B3). |
-| `KHMER_WORD_RE` / `KHMER_WORD_EXACT_RE` | A run of Khmer letters and signs, global / anchored. |
+| `KHMER_WORD_RE` / `KHMER_WORD_EXACT_RE` | A run of Khmer letters and signs (U+1780–U+17D3, U+17D7, U+17DC, U+17DD) with ZWNJ/ZWJ, global / anchored. No symbol matches, `.` included. |
 | `KHMER_WORD_SEPARATOR_RE` | Whitespace between two Khmer letters; capture group 1 is the letter before it. |
 | `KHMER_DIGITS` | `['០', …, '៩']` |
 | `KHMER_SUGGEST_TRIGGER_CHARACTERS` | The base letters, one per entry. |

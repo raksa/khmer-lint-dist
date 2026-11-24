@@ -1,6 +1,6 @@
 {
   "name": "khmer-lint",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Khmer language tools: spellcheck that understands unspaced text, word segmentation, a linter, zero-width word-break repair, NiDA keyboard conversions and Khmer digits — with the Khmer Hunspell dictionaries.",
   "license": "MIT",
   "author": "raksa <eng.raksa@gmail.com>",

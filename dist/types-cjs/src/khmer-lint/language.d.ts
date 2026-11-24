@@ -5,7 +5,13 @@
  * Open Lyric km-KH plugin, the VS Code Khmer Lint extension and the
  * `khmer-lint` tools.
  */
-/** A run of Khmer text: letters, signs, ZWNJ/ZWJ and `.` inside a word. */
+/**
+ * A run of Khmer text: letters and signs (U+1780–U+17D3, the repetition sign
+ * ៗ U+17D7, U+17DC, U+17DD) with ZWNJ/ZWJ. Every other character ends a word
+ * the way a space does — whitespace, the zero-width space, digits, and every
+ * symbol, Khmer or not (`.` `,` `!` `?` `។` `៕` `៖` `៛`, quotes, brackets …) —
+ * so `ច្រៀង.` is the word `ច្រៀង`, and `គ.ស.` is `គ` and `ស`.
+ */
 declare const KHMER_WORD_RE: RegExp;
 declare const KHMER_WORD_EXACT_RE: RegExp;
 /** A Khmer base letter (consonant or independent vowel). */
